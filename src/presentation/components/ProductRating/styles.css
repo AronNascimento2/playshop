@@ -1,0 +1,14 @@
+.product-rating {
+    display: inline-block;
+  }
+  
+  .star {
+    font-size: 20px;
+    color: gray; /* Cor das estrelas inativas */
+    margin-right: 5px;
+  }
+  
+  .star.active {
+    color: #f46f1d; /* Cor da estrela ativa (amarela) */
+  }
+  
