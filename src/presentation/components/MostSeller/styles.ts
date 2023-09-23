@@ -5,6 +5,10 @@ export const Container = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  .wrapper {
+    display: flex;
+    gap: 2rem;
+  }
   @media (max-width: 768px) {
     width: auto;
     h2 {

@@ -43,6 +43,9 @@ export const Title = styled.div`
   font-size: 30px;
   display: flex;
   color: #fff;
+  &:hover {
+    cursor: pointer;
+  }
   > p span {
     color: black;
   }

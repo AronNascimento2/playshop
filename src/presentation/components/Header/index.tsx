@@ -1,15 +1,27 @@
+import { useNavigate } from "react-router";
 import { Input } from "../Input";
 import { LoginHeader } from "../LoginHeader";
 import { MenuResponsive } from "./components/menuresponsive";
 import * as S from "./styles";
 
 export const Header = () => {
+  const history = useNavigate();
+
+  const handleClick = () => {
+    // Redireciona para a página de compra com o objeto product
+    history(`/`);
+  };
+
+  const handleProductClick = () => {
+    // Redireciona para a página de compra com o objeto product
+    history(`/cartItems`);
+  };
   return (
     <S.Container>
       <S.WrapperHeader>
         <div className="flex items-center gap-4">
           <MenuResponsive />
-          <S.Title>
+          <S.Title onClick={handleClick}>
             <p>
               Play<span>Shop</span>
             </p>
@@ -19,7 +31,7 @@ export const Header = () => {
         <LoginHeader />
         <div className="flex gap-4">
           <img src="favorite.png" alt="" />
-          <img src="cart.png" alt="" />
+          <img onClick={handleProductClick} src="cart.png" alt="" />
         </div>
       </S.WrapperHeader>
       <S.WrapperNav>
