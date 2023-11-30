@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     // Executar o alerta somente na primeira renderização
     if (showAlert) {
-      alert('Este projeto ainda está em andamento, ele pode não funcionar da maneira esperada');
+      alert('Este projeto ainda está em andamento e pode não funcionar conforme o esperado.');
       setShowAlert(false); // Altera o estado para não exibir o alerta novamente
     }
   }, [showAlert]);
