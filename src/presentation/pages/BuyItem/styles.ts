@@ -6,6 +6,9 @@ export const Container = styled.div`
   align-items: center;
   gap: 9rem;
   margin: 4rem;
+  @media (max-width: 768px) {
+    display: block;
+  }
   .price-before {
     font-size: 14px;
     line-height: 2;
@@ -22,9 +25,11 @@ export const Container = styled.div`
   .info-buy {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
   .wrapper-infos {
-    width: 700px;
     a {
       font-size: 12px;
       text-decoration: underline;
@@ -35,17 +40,26 @@ export const Container = styled.div`
   .description {
     font-size: 22px;
     margin-bottom: 1rem;
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
   .buttons {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
+    @media (max-width: 768px) {
+      align-items: center;
+    }
     button {
       width: 280px;
       height: 48px;
       border-radius: 30px;
       background-color: #f46f1d;
+      @media (max-width: 768px) {
+      
+      width: 100%;
+    }
     }
     .button_peek {
       color: #fcfcfc;
@@ -80,12 +94,20 @@ export const Container = styled.div`
     height: 60px;
     padding: 3rem 2rem;
     border-radius: 8px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 1rem;
+      height: auto;
+    }
     > div {
       display: flex;
       gap: 1rem;
     }
     p {
       font-weight: 600;
+      @media (max-width: 768px) {
+     padding-bottom: 0.5rem;
+    }
     }
     input {
       width: 160px;

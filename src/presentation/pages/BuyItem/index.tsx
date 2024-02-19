@@ -59,7 +59,9 @@ export const BuyItem = () => {
         </div>
         <div>
           <div className="cep">
-            <p>Calcule o frete e prazo de entrega</p>
+            <div className="container-text">
+              <p>Calcule o frete e prazo de entrega</p>
+            </div>
             <div>
               {" "}
               <input type="text" name="" id="" />
