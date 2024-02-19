@@ -9,9 +9,12 @@ export const Container = styled.div`
     display: flex;
     gap: 1rem;
     p {
-      font-size: 15px;
+      font-size: 22px;
       width: 650px;
       color: #575757;
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
     }
   }
   .item {
@@ -19,6 +22,9 @@ export const Container = styled.div`
     justify-content: space-between;
     padding: 2rem;
     border-bottom: 1px solid lightgray;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
   .title {
     border-bottom: 1px solid lightgray;
@@ -35,16 +41,42 @@ export const Container = styled.div`
     font-weight: 600;
     font-size: 22px;
     font-family: "Sarabun", arial, sans-serif;
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
   .pix-text {
     font-weight: 400;
 
     color: #c75000;
   }
+  .resume-container {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 1rem;
+  }
+  .items {
+    display: flex;
+    justify-content: space-between;
+  }
+  .items-text {
+    text-align: right;
+  }
+  .total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+    padding-top: 1rem;
+  }
+  .total-text {
+    text-align: right;
+  }
   .info-buy {
     display: flex;
     align-items: center;
     gap: 1rem;
+    @media (max-width: 768px) {
+      justify-content: space-between;
+    }
     select {
       width: 60px;
       height: 40px;
@@ -55,12 +87,19 @@ export const Container = styled.div`
     gap: 3rem;
     justify-content: center;
     margin-top: 2rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .container-shipment {
     background-color: lightgray;
     padding: 1rem;
     width: 600px;
+    @media (max-width: 768px) {
+      width: auto;
+      font-size: 14px;
+    }
     .container-location {
       display: flex;
       width: 100%;
@@ -78,6 +117,9 @@ export const Container = styled.div`
     }
   }
   .container-payment {
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
     div {
       padding-bottom: 1rem;
     }
@@ -86,6 +128,9 @@ export const Container = styled.div`
       height: 48px;
       border-radius: 30px;
       background-color: #f46f1d;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
     .button_peek {
       color: #fcfcfc;
@@ -97,5 +142,8 @@ export const Container = styled.div`
     display: flex;
 
     gap: 1rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 `;

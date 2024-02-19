@@ -59,20 +59,34 @@ export const CartItems = () => {
           </div>
         </div>
         <div className="container-payment">
-          <div>
-            <p>Resumo do pedido</p>
-          </div>
-          <div>
-            <span>Produtos R$2.653,15</span>
-            <span>Entrega R$4,99</span>
+          <div className="resume-container">
+            <p>
+              <b>Resumo do pedido</b>
+            </p>
           </div>
 
-          <div>
-            <span>Total</span>
-            <div>
+          <div className="items">
+            <p>
+              <b>Produtos</b>
+            </p>
+            <div className="items-text">
+              <p>R$2.653,15</p>
+            </div>
+          </div>
+          <div className="items">
+            <p>
+              <b>Entrega</b>
+            </p>
+            <div className="items-text">R$4,99</div>
+          </div>
+
+          <div className="total">
+            <p>Total</p>
+
+            <div className="total-text">
               <p className="price-before">R$2.600,00</p>
-              <span className="pix">ou R$2.000.00 </span>
-              <p className="pix-text">a vista no pix</p>
+              <p className="pix">R$2.000.00 </p>
+              <p className="pix-text">no Cartão ou a vista no pix</p>
             </div>
           </div>
           <div className="buttons">
