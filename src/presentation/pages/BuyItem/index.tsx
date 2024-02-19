@@ -5,6 +5,7 @@ import { products } from "../../../data/getProducts";
 import { useState } from "react";
 import { searchCep } from "../../../data/getAdress";
 import { Endereco } from "../../../domain/models/cepModel";
+import InputMask from "react-input-mask";
 
 export const BuyItem = () => {
   const [search, setSearch] = useState();
@@ -94,12 +95,14 @@ export const BuyItem = () => {
             </div>
             <div>
               {" "}
-              <input
+              <InputMask
                 onChange={onChangeHandler}
                 className="input-cep"
                 type="text"
                 name=""
                 id=""
+                mask="99999-999"
+
               />
               <button onClick={handleSearch}>Consultar</button>
             </div>
