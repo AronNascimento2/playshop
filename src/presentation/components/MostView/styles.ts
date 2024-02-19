@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 2rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
   @media (max-width: 768px) {
     margin-left: 1rem;
 
@@ -26,7 +26,7 @@ export const Container = styled.div`
   }
   .next-button {
     bottom:300px;
-    left: 98.5%;
+    left: 98.8%;
     position: relative;
     z-index: 999;
     width: 40px;
