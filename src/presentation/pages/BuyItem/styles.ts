@@ -6,6 +6,12 @@ export const Container = styled.div`
   align-items: center;
   gap: 9rem;
   margin: 4rem;
+  .container-img{
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+  }
+  }
   @media (max-width: 768px) {
     display: block;
   }

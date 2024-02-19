@@ -10,9 +10,13 @@ type props = {
 export const MostView = ({ className }: props) => {
   const history = useNavigate();
 
-  const handleProductClick = () => {
+  const handleProductClick = (productId: number) => {
+    // Encontra o produto clicado na lista de produtos
+    const clickedProduct = products.find((product) => product.id === productId);
+    console.log(clickedProduct);
+
     // Redireciona para a página de compra com o objeto product
-    history(`/buyItem/`);
+    history(`/buyItem/${clickedProduct?.id}`);
   };
   const listProducts: Product[] = products;
 
@@ -27,7 +31,7 @@ export const MostView = ({ className }: props) => {
           {listProducts.map((product) => {
             return (
               <Card
-                onClick={handleProductClick}
+                onClick={() => handleProductClick(product.id)}
                 product={product}
                 key={product.id}
               />

@@ -4,7 +4,10 @@ export type Product = {
   img: string;
   title: string;
   pricebefore: string;
-  priceafter: string;
+  priceCard: string;
+  parcel:string
   pix: string;
   rating: number;
+  parcelCard:string;
+  pixText:string
 };
