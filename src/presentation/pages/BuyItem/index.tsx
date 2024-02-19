@@ -13,6 +13,7 @@ export const BuyItem = () => {
   const handleProductClick = (productId: number) => {
     // Encontra o produto clicado na lista de produtos
     const clickedProduct = products.find((product) => product.id === productId);
+console.log(clickedProduct);
 
     // Redireciona para a página de compra com o objeto product
     history(`/cartItems/${clickedProduct?.id}`);
@@ -40,7 +41,10 @@ export const BuyItem = () => {
             </div>
           </div>
           <div className="buttons">
-            <button onClick={handleProductClick} className="button_buy">
+            <button
+              onClick={() => handleProductClick(product.id)}
+              className="button_buy"
+            >
               Comprar
             </button>
             <button className="button_peek">Retira rápido</button>

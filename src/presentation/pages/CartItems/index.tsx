@@ -1,13 +1,22 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import * as S from "./styles";
+import { products } from "../../../data/getProducts";
 
 export const CartItems = () => {
+  const { id } = useParams(); // Obtém o id do produto da rota
+
+  const product = products.find((product) => product?.id === parseInt(id, 10)); // Encontra o produto correspondente na lista
+
   const history = useNavigate();
 
   const handleClick = () => {
     // Redireciona para a página de compra com o objeto product
     history(`/`);
   };
+  if (!product) {
+    return <div>Produto não encontrado</div>;
+  }
+
   return (
     <S.Container>
       <div className="title">
@@ -15,12 +24,8 @@ export const CartItems = () => {
       </div>
       <div className="item">
         <div className="wrapper-info">
-          <img src="products/tv43.png" alt="" style={{ width: "100px" }} />
-          <p>
-            Smart TV 50" UHD 4K Samsung 50CU7700, Processador Crystal 4K,
-            Samsung Gaming Hub, Visual Livre de Cabos, Tela sem limites, Alexa
-            built in
-          </p>
+          <img src={product.img} alt="" style={{ width: "100px" }} />
+          <p>{product?.title}</p>
         </div>
         <div className="info-buy">
           <select>
@@ -31,8 +36,8 @@ export const CartItems = () => {
             <option value="5">5</option>
           </select>
           <div>
-            <p className="price-before">R$2.600,00</p>
-            <span className="pix">ou R$2.000.00 </span>
+            <p className="price-before">{product.pricebefore}</p>
+            <span className="pix">ou {product.pix} </span>
             <p className="pix-text">a vista no pix</p>
           </div>
         </div>
@@ -54,7 +59,7 @@ export const CartItems = () => {
               </span>
             </div>
             <div>
-              <p className="price">R$4,99</p>
+              <p className="price">Gratís</p>
             </div>
           </div>
         </div>
@@ -70,22 +75,22 @@ export const CartItems = () => {
               <b>Produtos</b>
             </p>
             <div className="items-text">
-              <p>R$2.653,15</p>
+              <p>{product.pricebefore}</p>
             </div>
           </div>
           <div className="items">
             <p>
               <b>Entrega</b>
             </p>
-            <div className="items-text">R$4,99</div>
+            <div className="items-text green">Gratís</div>
           </div>
 
           <div className="total">
             <p>Total</p>
 
             <div className="total-text">
-              <p className="price-before">R$2.600,00</p>
-              <p className="pix">R$2.000.00 </p>
+              <p className="price-before">{product.pricebefore}</p>
+              <p className="pix">{product.pix}</p>
               <p className="pix-text">no Cartão ou a vista no pix</p>
             </div>
           </div>

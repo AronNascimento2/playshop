@@ -60,7 +60,11 @@ export const Container = styled.div`
   }
   .items-text {
     text-align: right;
+    
   }
+  .items-text.green {
+    color: #0E8154; /* Estilo específico para a classe 'green' */
+}
   .total {
     display: flex;
     justify-content: space-between;
@@ -109,6 +113,7 @@ export const Container = styled.div`
       }
       .price {
         font-weight: 600;
+        color: #0E8154;
       }
     }
 
