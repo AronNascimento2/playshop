@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { Card } from "../Card";
 import * as S from "./styles";
-import { products } from "../../../data/getProducts";
+import { mostSellerProducts } from "../../../data/getMostSellerProducts";
 
 type Props = {
   className?: string;
@@ -12,7 +12,7 @@ export const MostSeller = ({ className }: Props) => {
 
   const handleProductClick = (productId: number) => {
     // Encontra o produto clicado na lista de produtos
-    const clickedProduct = products.find((product) => product.id === productId);
+    const clickedProduct = mostSellerProducts.find((product) => product.id === productId);
     console.log(clickedProduct);
     
     // Redireciona para a página de compra com o objeto product
@@ -26,7 +26,7 @@ export const MostSeller = ({ className }: Props) => {
           <h2 className="pb-4 text-4xl ">Mais Vendidos</h2>
         </div>
         <div className="wrapper">
-          {products.map((product) => (
+          {mostSellerProducts.map((product) => (
             <Card
               onClick={() => handleProductClick(product.id)}
               product={product}

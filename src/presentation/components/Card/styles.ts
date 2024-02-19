@@ -7,7 +7,10 @@ export const Container = styled.div`
     cursor: pointer;
   }
   @media (max-width: 768px) {
-    height: 410px;
+    height: 440px;
+  }
+  .priceParcel-description{
+    font-size: 12px;
   }
   .title {
     color: #404040;
@@ -40,6 +43,20 @@ export const Container = styled.div`
     font-weight: 600;
     font-size: 22px;
     font-family: "Sarabun", arial, sans-serif;
+  }
+  .pix.text{
+    font-size: 12px;
+
+  }
+  @media (max-width: 768px) {
+    .pix {
+   
+    font-size: 16px;
+  }
+  .pix.text{
+    font-size: 12px;
+
+  }
   }
 `;
 export const Wrapper = styled.div``;

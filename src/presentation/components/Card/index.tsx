@@ -19,8 +19,14 @@ export const Card = ({ product, onClick }: props) => {
         </span>
         <div>
           <p className="price-before">{product?.pricebefore}</p>
-          <p>{product?.priceafter}</p>
-          <span className="pix">{product?.pix}</span>
+          <div className="priceParcel-description">
+            <strong>{product?.priceCard}</strong> {""}
+            ou até <strong>{product?.parcel}</strong> sem juros ou
+          </div>
+          <div>
+            <p className="pix">{product?.pix}</p>{" "}
+            <p className="pix text">No pix</p>
+          </div>
         </div>
       </S.Container>
     </S.Wrapper>

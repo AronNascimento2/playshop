@@ -5,7 +5,7 @@ import { products } from "../../../data/getProducts";
 export const CartItems = () => {
   const { id } = useParams(); // Obtém o id do produto da rota
 
-  const product = products.find((product) => product?.id === parseInt(id, 10)); // Encontra o produto correspondente na lista
+  const product = products.find((product) => product?.id === parseInt(id!, 10)); // Encontra o produto correspondente na lista
 
   const history = useNavigate();
 
