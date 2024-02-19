@@ -91,7 +91,7 @@ export const CartItems = () => {
             <div className="total-text">
               <p className="price-before">{product.pricebefore}</p>
               <p className="pix">{product.pix}</p>
-              <p className="pix-text">no Cartão ou a vista no pix</p>
+              <p className="pix-text">ou a vista no pix</p>
             </div>
           </div>
           <div className="buttons">
