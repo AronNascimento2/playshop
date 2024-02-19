@@ -6,11 +6,14 @@ export const Container = styled.div`
   align-items: center;
   gap: 9rem;
   margin: 4rem;
-  .container-img{
+  @media (max-width: 768px) {
+    margin: 1rem;
+  }
+  .container-img {
     @media (max-width: 768px) {
       display: flex;
       justify-content: center;
-  }
+    }
   }
   @media (max-width: 768px) {
     display: block;
@@ -63,9 +66,8 @@ export const Container = styled.div`
       border-radius: 30px;
       background-color: #f46f1d;
       @media (max-width: 768px) {
-      
-      width: 100%;
-    }
+        width: 100%;
+      }
     }
     .button_peek {
       color: #fcfcfc;
@@ -92,6 +94,11 @@ export const Container = styled.div`
       font-size: 11px;
     }
   }
+  .form-to-pay.last{
+   
+    border-bottom:0;
+    
+  }
   .cep {
     display: flex;
     align-items: center;
@@ -112,8 +119,8 @@ export const Container = styled.div`
     p {
       font-weight: 600;
       @media (max-width: 768px) {
-     padding-bottom: 0.5rem;
-    }
+        padding-bottom: 0.5rem;
+      }
     }
     input {
       width: 160px;

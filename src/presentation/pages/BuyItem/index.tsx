@@ -63,7 +63,7 @@ export const BuyItem = () => {
           <div className="form-to-pay">
             {product.pix} - {product.pixText} <span>Exclusivo Pix</span>
           </div>
-          <div className="form-to-pay">
+          <div className="form-to-pay last">
             R$ {product.priceCard}{" "}
             <span>
               à vista no Cartão Ponto ou <strong>{product.parcelCard}</strong>{" "}
