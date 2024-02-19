@@ -4,7 +4,7 @@ export const Container = styled.div`
   padding: 2rem;
   margin-left: 2rem;
   @media (max-width: 768px) {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
 
     width: auto;
     h2 {
