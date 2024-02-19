@@ -6,8 +6,8 @@ export const Container = styled.div`
     cursor: pointer;
   }
   @media (max-width: 768px) {
-    height: 545px;
-    width: 391px;
+    height: 496px;
+    width: 333px;
   }
   .priceParcel-description{
     font-size: 12px;
