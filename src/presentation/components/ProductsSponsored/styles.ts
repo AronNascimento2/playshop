@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
   .wrapper {
     display: flex;
     gap: 2rem;
