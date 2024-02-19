@@ -4,10 +4,11 @@ import { Container } from "./styles";
 import { products } from "../../../data/getProducts";
 import { useState } from "react";
 import { searchCep } from "../../../data/getAdress";
+import { Endereco } from "../../../domain/models/cepModel";
 
 export const BuyItem = () => {
   const [search, setSearch] = useState();
-  const [cep, setCep] = useState();
+  const [cep, setCep] = useState<Endereco | null>(null);
   const { id } = useParams(); // Obtém o id do produto da rota
 
   const product = products.find((product) => product?.id === parseInt(id!, 10)); // Encontra o produto correspondente na lista
@@ -27,7 +28,7 @@ export const BuyItem = () => {
     return <div>Produto não encontrado</div>;
   }
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e:any) => {
     setSearch(e.target.value);
   };
 
@@ -35,8 +36,7 @@ export const BuyItem = () => {
     onSearchHandler(search);
   };
 
-
-  const onSearchHandler = async (cep) => {
+  const onSearchHandler = async (cep: any) => {
     const result = await searchCep(cep);
     setCep(result);
   };
@@ -94,36 +94,41 @@ export const BuyItem = () => {
             </div>
             <div>
               {" "}
-              <input  onChange={onChangeHandler} className="input-cep"type="text" name="" id="" />
+              <input
+                onChange={onChangeHandler}
+                className="input-cep"
+                type="text"
+                name=""
+                id=""
+              />
               <button onClick={handleSearch}>Consultar</button>
             </div>
           </div>
           {cep && (
             <div className="content-container">
-                <p className="cep-text">{cep?.logradouro}</p>
-                <div className="items">
-                 <div>
-                 <p>Retira Rápido</p>
+              <p className="cep-text">{cep?.logradouro}</p>
+              <div className="items">
+                <div>
+                  <p>Retira Rápido</p>
                   <p>
                     <b>Retira em 2h</b>
                   </p>
-                 </div>
-                  <div className="items-text green">
-                    <p>Gratís</p>
-                  </div>
                 </div>
-                <div className="items">
-                 <div>
-                 <p>Normal</p>
+                <div className="items-text green">
+                  <p>Gratís</p>
+                </div>
+              </div>
+              <div className="items">
+                <div>
+                  <p>Normal</p>
                   <p>
                     <b>até amanhã</b>
                   </p>
-                 </div>
-                  <div className="items-text orange">
-                    <p>R$9,90</p>
-                  </div>
                 </div>
-               
+                <div className="items-text orange">
+                  <p>R$9,90</p>
+                </div>
+              </div>
             </div>
           )}
         </div>
