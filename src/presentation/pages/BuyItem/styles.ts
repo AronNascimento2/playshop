@@ -99,6 +99,32 @@ export const Container = styled.div`
     border-bottom:0;
     
   }
+  .content-container{
+    padding: 1rem;
+  }
+  .cep-text{
+    color: #f46f1d;
+  }
+  .items {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f46f1d ;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+
+  }
+  .items-text {
+    text-align: right;
+    
+  }
+  .items-text.green {
+    color: #0E8154; /* Estilo específico para a classe 'green' */
+}
+
+.items-text.orange{
+  color: #f46f1d;
+
+}
   .cep {
     display: flex;
     align-items: center;
@@ -134,5 +160,8 @@ export const Container = styled.div`
       color: #fcfcfc;
       background-color: #1b1918;
     }
+  }
+  .input-cep{
+    padding: 1rem;
   }
 `;
