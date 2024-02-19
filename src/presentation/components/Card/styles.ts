@@ -7,7 +7,7 @@ export const Container = styled.div`
   }
   @media (max-width: 768px) {
     height: 496px;
-    width: 333px;
+    width: 100%;
   }
   .priceParcel-description{
     font-size: 12px;

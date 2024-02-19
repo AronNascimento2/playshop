@@ -2,11 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 2rem;
-  margin-left: 2rem;
   @media (max-width: 768px) {
-    margin-left: 1rem;
 
-    width: auto;
     h2 {
       font-size: 25px;
       margin-left: 0.5rem;
@@ -28,7 +25,7 @@ export const Container = styled.div`
   }
   .next-button {
     bottom:355px;
-    left: 91.8%;
+    left: 93.8%;
     position: relative;
     z-index: 999;
     width: 40px;
