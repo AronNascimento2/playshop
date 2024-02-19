@@ -5,7 +5,7 @@ export const Container = styled.div`
   @media (max-width: 768px) {
 
     h2 {
-      font-size: 25px;
+      font-size: 36px;
       margin-left: 0.5rem;
     }
   }
