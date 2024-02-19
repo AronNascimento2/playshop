@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   box-shadow: rgb(204, 204, 204) 0px 4px 8px -4px;
-  line-height: 2;
   &:hover {
     cursor: pointer;
   }
   @media (max-width: 768px) {
-    height: 440px;
+    height: 470px;
+    width: 314px;
   }
   .priceParcel-description{
     font-size: 12px;

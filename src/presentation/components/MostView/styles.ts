@@ -25,7 +25,7 @@ export const Container = styled.div`
     border: 1px solid lightgray;
   }
   .next-button {
-    bottom:300px;
+    bottom:330px;
     left: 98.8%;
     position: relative;
     z-index: 999;
