@@ -40,7 +40,29 @@ export const BuyItem = () => {
   const onSearchHandler = async (cep: any) => {
     const result = await searchCep(cep);
     setCep(result);
+    if (result && result.logradouro) {
+      localStorage.setItem('cep', JSON.stringify({
+        cep: result.cep,
+        logradouro: result.logradouro,
+        complemento: result.complemento,
+        bairro: result.bairro,
+        localidade: result.localidade,
+        uf: result.uf
+      }));
+    }
   };
+  const getRandomPrice = () => {
+    // Gera um número aleatório entre 0 e 1200 (representando centavos)
+    const randomPriceInCents = Math.floor(Math.random() * 1201);
+    // Converte o valor para o formato de preço em reais (R$)
+    const formattedPrice = (randomPriceInCents / 100).toFixed(2);
+    return `R$${formattedPrice}`;
+  };
+  
+  // Exemplo de uso:
+  console.log(getRandomPrice()); // Saída: R$7.89
+  
+
   return (
     <Container>
       <div className="container-img">
@@ -129,7 +151,7 @@ export const BuyItem = () => {
                   </p>
                 </div>
                 <div className="items-text orange">
-                  <p>R$9,90</p>
+                  <p>{getRandomPrice()}</p>
                 </div>
               </div>
             </div>

@@ -16,7 +16,13 @@ export const CartItems = () => {
   if (!product) {
     return <div>Produto não encontrado</div>;
   }
-
+  let cepObject = null; // Defina cepObject inicialmente como null
+  const cepFromLocalStorage = localStorage.getItem('cep');
+  if (cepFromLocalStorage) {
+    cepObject = JSON.parse(cepFromLocalStorage);
+    // Agora cepObject tem o objeto recuperado do localStorage
+  }
+  
   return (
     <S.Container>
       <div className="title">
@@ -54,8 +60,8 @@ export const CartItems = () => {
           <div className="container-location">
             <div className="location">
               <span>
-                Rua Francisco Bajarte Jardim Sao Paulo(Zona Leste), São Paulo -
-                SP CEP: 08461-270
+              {cepObject.logradouro}{" "}{cepObject.bairro},{cepObject.localidade}-
+              {cepObject.uf}{" "}CEP: {cepObject.cep}
               </span>
             </div>
             <div>
