@@ -4,11 +4,13 @@ import { useNavigate, useParams } from "react-router";
 import * as S from "./styles";
 import { products } from "../../../data/getProducts";
 import { searchCep } from "../../../data/getAdress";
+import { Endereco } from "../../../domain/models/cepModel";
+
 
 export const CartItems: React.FC = () => {
   const { id } = useParams();
   const [search, setSearch] = useState("");
-  const [cep, setCep] = useState(null);
+  const [cep, setCep] = useState<Endereco | null>(null);
   const [loading, setLoading] = useState(false);
   console.log(cep);
   const product = products.find((product) => product?.id === parseInt(id!, 10));
@@ -19,7 +21,7 @@ export const CartItems: React.FC = () => {
     history(`/`);
   };
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
@@ -49,10 +51,10 @@ export const CartItems: React.FC = () => {
   if (!product) {
     return <div>Produto não encontrado</div>;
   }
-  let cepObject = null; // Defina cepObject inicialmente como null
+  let cepObject: Endereco | null = null; // Defina cepObject inicialmente como null
   const cepFromLocalStorage = localStorage.getItem("cep");
   if (cepFromLocalStorage) {
-    cepObject = JSON.parse(cepFromLocalStorage);
+    cepObject = JSON.parse(cepFromLocalStorage) as Endereco;
     // Agora cepObject tem o objeto recuperado do localStorage
   }
   return (
