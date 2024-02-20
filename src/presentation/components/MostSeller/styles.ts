@@ -39,7 +39,7 @@ export const Container = styled.div`
     top: 220px;
     right: 20px;
     position: relative;
-    z-index: 999;
+    z-index: 998;
     width: 40px;
     height: 60px;
     border: 1px solid lightgray;
@@ -49,7 +49,7 @@ export const Container = styled.div`
     bottom:378px;
     left: 93.8%;
     position: relative;
-    z-index: 999;
+    z-index: 998;
     width: 40px;
     height: 60px;
     border: 1px solid lightgray;
