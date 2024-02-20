@@ -126,6 +126,9 @@ export const Container = styled.div`
   color: #f46f1d;
 
 }
+.cep.loader{
+justify-content: center;
+}
   .cep {
     display: flex;
     align-items: center;
@@ -134,6 +137,8 @@ export const Container = styled.div`
     height: 60px;
     padding: 3rem 2rem;
     border-radius: 8px;
+    background:#f46f1d;
+
     @media (max-width: 768px) {
       flex-direction: column;
       padding: 1rem;
@@ -145,6 +150,7 @@ export const Container = styled.div`
     }
     p {
       font-weight: 600;
+      color: #fff;
       @media (max-width: 768px) {
         padding-bottom: 0.5rem;
       }
@@ -165,4 +171,9 @@ export const Container = styled.div`
   .input-cep{
     padding: 1rem;
   }
+`;
+export const CepLoader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

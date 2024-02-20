@@ -156,6 +156,9 @@ export const Container = styled.div`
       flex-direction: column;
     }
   }
+  .cep.loader{
+justify-content: center;
+}
   .cep {
     display: flex;
     align-items: center;

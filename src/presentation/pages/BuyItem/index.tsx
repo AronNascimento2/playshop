@@ -6,10 +6,13 @@ import { useState } from "react";
 import { searchCep } from "../../../data/getAdress";
 import { Endereco } from "../../../domain/models/cepModel";
 import InputMask from "react-input-mask";
+import { ClipLoader } from "react-spinners";
 
 export const BuyItem = () => {
   const [search, setSearch] = useState();
   const [cep, setCep] = useState<Endereco | null>(null);
+  const [loading, setLoading] = useState(false);
+
   const { id } = useParams(); // Obtém o id do produto da rota
 
   const product = products.find((product) => product?.id === parseInt(id!, 10)); // Encontra o produto correspondente na lista
@@ -29,7 +32,7 @@ export const BuyItem = () => {
     return <div>Produto não encontrado</div>;
   }
 
-  const onChangeHandler = (e:any) => {
+  const onChangeHandler = (e: any) => {
     setSearch(e.target.value);
   };
 
@@ -37,31 +40,29 @@ export const BuyItem = () => {
     onSearchHandler(search);
   };
 
-  const onSearchHandler = async (cep: any) => {
-    const result = await searchCep(cep);
-    setCep(result);
-    if (result && result.logradouro) {
-      localStorage.setItem('cep', JSON.stringify({
-        cep: result.cep,
-        logradouro: result.logradouro,
-        complemento: result.complemento,
-        bairro: result.bairro,
-        localidade: result.localidade,
-        uf: result.uf
-      }));
-    }
+  const onSearchHandler = async () => {
+    setLoading(true);
+
+    // Simulando um atraso de 2 segundos
+    setTimeout(async () => {
+      const result = await searchCep(search);
+      setLoading(false);
+      setCep(result);
+      if (result && result.logradouro) {
+        localStorage.setItem(
+          "cep",
+          JSON.stringify({
+            cep: result.cep,
+            logradouro: result.logradouro,
+            complemento: result.complemento,
+            bairro: result.bairro,
+            localidade: result.localidade,
+            uf: result.uf,
+          })
+        );
+      }
+    }, 1000);
   };
-  const getRandomPrice = () => {
-    // Gera um número aleatório entre 0 e 1200 (representando centavos)
-    const randomPriceInCents = Math.floor(Math.random() * 1201);
-    // Converte o valor para o formato de preço em reais (R$)
-    const formattedPrice = (randomPriceInCents / 100).toFixed(2);
-    return `R$${formattedPrice}`;
-  };
-  
-  // Exemplo de uso:
-  console.log(getRandomPrice()); // Saída: R$7.89
-  
 
   return (
     <Container>
@@ -111,24 +112,32 @@ export const BuyItem = () => {
           </div>
         </div>
         <div>
-          <div className="cep">
-            <div className="container-text">
-              <p>Calcule o frete e prazo de entrega</p>
+          {!loading ? (
+            <div className="cep">
+              <div className="container-text">
+                <p>Calcule o frete e prazo de entrega</p>
+              </div>
+              <div>
+                {" "}
+                <InputMask
+                  onChange={onChangeHandler}
+                  className="input-cep"
+                  type="text"
+                  name=""
+                  id=""
+                  mask="99999-999"
+                />
+                <button onClick={handleSearch}>Consultar</button>
+              </div>
             </div>
-            <div>
-              {" "}
-              <InputMask
-                onChange={onChangeHandler}
-                className="input-cep"
-                type="text"
-                name=""
-                id=""
-                mask="99999-999"
-
+          ) : (
+            <div className="cep loader">
+              <ClipLoader
+                color=" #fff"
+                size={50}
               />
-              <button onClick={handleSearch}>Consultar</button>
             </div>
-          </div>
+          )}
           {cep && (
             <div className="content-container">
               <p className="cep-text">{cep?.logradouro}</p>

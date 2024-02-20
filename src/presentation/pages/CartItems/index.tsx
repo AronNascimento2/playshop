@@ -5,7 +5,7 @@ import * as S from "./styles";
 import { products } from "../../../data/getProducts";
 import { searchCep } from "../../../data/getAdress";
 import { Endereco } from "../../../domain/models/cepModel";
-
+import { ClipLoader } from "react-spinners";
 
 export const CartItems: React.FC = () => {
   const { id } = useParams();
@@ -84,24 +84,29 @@ export const CartItems: React.FC = () => {
       </div>
 
       <div className="wrapper-payment">
-        <div className="cep">
-          <div className="container-text">
-            <p>Calcule o frete e prazo de entrega</p>
+        {!loading ? (
+          <div className="cep">
+            <div className="container-text">
+              <p>Calcule o frete e prazo de entrega</p>
+            </div>
+            <div>
+              {" "}
+              <InputMask
+                onChange={onChangeHandler}
+                className="input-cep"
+                type="text"
+                name=""
+                id=""
+                mask="99999-999"
+              />
+              <button onClick={handleSearch}>Consultar</button>
+            </div>
           </div>
-          <div>
-            <InputMask
-              onChange={onChangeHandler}
-              className="input-cep"
-              type="text"
-              name=""
-              id=""
-              mask="99999-999"
-            />
-            <button onClick={handleSearch} disabled={loading}>
-              Consultar
-            </button>
+        ) : (
+          <div className="cep loader">
+            <ClipLoader color=" #fff" size={50} />
           </div>
-        </div>
+        )}
         {cepObject && (
           <div className="container-shipment">
             <div>
