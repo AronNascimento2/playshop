@@ -9,7 +9,7 @@ import InputMask from "react-input-mask";
 import { ClipLoader } from "react-spinners";
 
 export const BuyItem = () => {
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
   const [cep, setCep] = useState<Endereco | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -32,15 +32,11 @@ export const BuyItem = () => {
     return <div>Produto não encontrado</div>;
   }
 
-  const onChangeHandler = (e: any) => {
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
-  const handleSearch = () => {
-    onSearchHandler(search);
-  };
-
-  const onSearchHandler = async () => {
+  const handleSearch = async () => {
     setLoading(true);
 
     // Simulando um atraso de 2 segundos
