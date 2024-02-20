@@ -92,6 +92,7 @@ export const Container = styled.div`
   .wrapper-payment {
     display: flex;
     gap: 3rem;
+    flex-direction: column;
     justify-content: center;
     margin-top: 2rem;
     @media (max-width: 768px) {
@@ -102,7 +103,6 @@ export const Container = styled.div`
   .container-shipment {
     background-color: lightgray;
     padding: 1rem;
-    width: 600px;
     @media (max-width: 768px) {
       width: auto;
       font-size: 14px;
@@ -148,10 +148,53 @@ export const Container = styled.div`
   }
   .buttons {
     display: flex;
+    justify-content:center;
+    align-items: center;
 
     gap: 1rem;
     @media (max-width: 768px) {
       flex-direction: column;
     }
+  }
+  .cep {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid gray;
+    height: 60px;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    background:#f46f1d;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 1rem;
+      height: auto;
+    }
+    > div {
+      display: flex;
+      gap: 1rem;
+    }
+    p {
+      color: #fff;
+      font-weight: 600;
+      @media (max-width: 768px) {
+        padding-bottom: 0.5rem;
+      }
+    }
+    input {
+      width: 160px;
+      height: 44px;
+      border: 1px solid gray;
+    }
+    button {
+      height: 44px;
+      border-radius: 40px;
+      width: 100px;
+      color: #fcfcfc;
+      background-color: #1b1918;
+    }
+  }
+  .input-cep{
+    padding: 1rem;
   }
 `;

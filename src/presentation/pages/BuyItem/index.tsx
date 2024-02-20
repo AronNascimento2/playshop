@@ -40,14 +40,14 @@ export const BuyItem = () => {
   const onSearchHandler = async (cep: any) => {
     const result = await searchCep(cep);
     setCep(result);
-    if (result && result.logradouro) {
+    if (result ?? result?.logradouro) {
       localStorage.setItem('cep', JSON.stringify({
-        cep: result.cep,
-        logradouro: result.logradouro,
-        complemento: result.complemento,
-        bairro: result.bairro,
-        localidade: result.localidade,
-        uf: result.uf
+        cep: result?.cep,
+        logradouro: result?.logradouro,
+        complemento: result?.complemento,
+        bairro: result?.bairro,
+        localidade: result?.localidade,
+        uf: result?.uf
       }));
     }
   };
@@ -151,7 +151,7 @@ export const BuyItem = () => {
                   </p>
                 </div>
                 <div className="items-text orange">
-                  <p>{getRandomPrice()}</p>
+                  <p>R$ 10,00</p>
                 </div>
               </div>
             </div>
