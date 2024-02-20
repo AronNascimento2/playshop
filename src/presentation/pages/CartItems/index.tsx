@@ -31,7 +31,7 @@ export const CartItems: React.FC = () => {
       const result = await searchCep(search);
       setLoading(false);
       setCep(result);
-      if (result ?? result?.logradouro) {
+      if (result && result.logradouro) {
         localStorage.setItem(
           "cep",
           JSON.stringify({
